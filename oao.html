@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botones Bonitos</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .button {
+            width: 150px;
+            height: 150px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 75px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: white;
+            position: relative;
+            transition: transform 0.5s;
+        }
+        .button-text {
+            position: absolute;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .face {
+            display: block;
+            font-size: 48px;
+        }
+        .message {
+            display: none;
+            color: black;
+            font-size: 16px;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="button" onclick="toggleMessage(this, 'Te amo mucho mi princesa!')">
+        <span class="face">😊</span>
+        <span class="message"></span>
+    </div>
+    <div class="button" onclick="toggleMessage(this, 'Eres la más hermosa de todo el mundo!')">
+        <span class="face">😊</span>
+        <span class="message"></span>
+    </div>
+    <div class="button" onclick="toggleMessage(this, 'Eres lo mejor que me ha pasado!')">
+        <span class="face">😊</span>
+        <span class="message"></span>
+    </div>
+    <div class="button" onclick="toggleMessage(this, 'Te mando muchos besos mi amor!')">
+        <span class="face">😊</span>
+        <span class="message"></span>
+    </div>
+    <div class="button" onclick="toggleMessage(this, 'El más afortunado soy!')">
+        <span class="face">😊</span>
+        <span class="message"></span>
+    </div>
+    <div class="button" onclick="toggleMessage(this, 'Amo tu cuerpo!')">
+        <span class="face">😊</span>
+        <span class="message"></span>
+    </div>
+    <div class="button" onclick="toggleMessage(this, 'Me encanta tu personalidad!')">
+        <span class="face">😊</span>
+        <span class="message"></span>
+    </div>
+    <div class="button" onclick="toggleMessage(this, 'Amo tus ojitos!')">
+        <span class="face">😊</span>
+        <span class="message"></span>
+    </div>
+    <div class="button" onclick="toggleMessage(this, 'Sabes que me encantas?')">
+        <span class="face">😊</span>
+        <span class="message"></span>
+    </div>
+    <div class="button" onclick="toggleMessage(this, 'Eres la cosa más preciosa que ha llegado a mí!')">
+        <span class="face">😊</span>
+        <span class="message"></span>
+    </div>
+
+    <script>
+        function toggleMessage(button, message) {
+            const face = button.querySelector('.face');
+            const messageSpan = button.querySelector('.message');
+
+            if (messageSpan.style.display === 'none' || messageSpan.style.display === '') {
+                face.style.display = 'none'; // Oculta la cara
+                messageSpan.textContent = message; // Muestra el mensaje
+                messageSpan.style.display = 'block'; // Muestra el mensaje
+                button.style.transform = 'rotate(360deg)'; // Gira el botón
+            } else {
+                face.style.display = 'block'; // Muestra la cara
+                messageSpan.style.display = 'none'; // Oculta el mensaje
+                button.style.transform = 'rotate(0deg)'; // Restaura el giro
+            }
+        }
+
+        // Función para hacer parpadear los ojitos
+        setInterval(() => {
+            const faces = document.querySelectorAll('.face');
+            faces.forEach(face => {
+                face.style.opacity = face.style.opacity === '0' ? '1' : '0'; // Parpadeo
+            });
+        }, 2000);
+    </script>
+
+</body>
+</html>
